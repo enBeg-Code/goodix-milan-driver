@@ -110,6 +110,22 @@ Possible next steps: finger detection with the sensor's FDT interrupt mode inste
 polling, OTP calibration, support for other Milan chip IDs, upstreaming the driver into
 libfprint.
 
+## Related projects
+
+Other community drivers for the same sensor, developed independently:
+
+- [bchapoton/goodix-gxfp3200-linux](https://github.com/bchapoton/goodix-gxfp3200-linux):
+  tested on the ASUSPRO P5440FA (Debian 13); libfprint rebuilt with the driver and
+  installed in `/usr/local`, SIFT-based matcher, resets the sensor through its GPIO after
+  suspend/resume.
+- [guillermodoghel/goodix-gxfp3200-linux](https://github.com/guillermodoghel/goodix-gxfp3200-linux):
+  tested on the ASUS ZenBook 13 UX331F (Arch); `goodixspi` driver with a correlation matcher,
+  replaces the system libfprint.
+
+This project differs mainly in being a TOD module for the stock Ubuntu libfprint, in having
+a dependency-free C matcher and in reading the image FIFO in chunks, so the default `spidev`
+buffer is enough. Pick the one that fits your system; joining efforts is welcome.
+
 ## Credits
 
 Developed by **enBeg**, who drove the project, provided the hardware and tested every step

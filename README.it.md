@@ -112,6 +112,23 @@ Possibili sviluppi: rilevare il dito con la modalità a interrupt del sensore (F
 polling, calibrazione da OTP, supporto ad altri chip Milan, integrazione del driver in
 libfprint.
 
+## Progetti correlati
+
+Altri driver della comunità per lo stesso sensore, sviluppati in modo indipendente:
+
+- [bchapoton/goodix-gxfp3200-linux](https://github.com/bchapoton/goodix-gxfp3200-linux):
+  provato sull'ASUSPRO P5440FA (Debian 13); ricompila libfprint con il driver e la installa in
+  `/usr/local`, riconoscimento basato su SIFT, reimposta il sensore tramite il suo GPIO dopo
+  la sospensione.
+- [guillermodoghel/goodix-gxfp3200-linux](https://github.com/guillermodoghel/goodix-gxfp3200-linux):
+  provato sull'ASUS ZenBook 13 UX331F (Arch); driver `goodixspi` con riconoscimento a
+  correlazione, sostituisce la libfprint di sistema.
+
+Questo progetto si distingue soprattutto perché è un modulo TOD per la libfprint di Ubuntu,
+ha un riconoscimento in C senza dipendenze e legge la coda dell'immagine a blocchi, quindi
+basta il buffer predefinito di `spidev`. Scegli quello adatto al tuo sistema; unire gli
+sforzi è benvenuto.
+
 ## Riconoscimenti
 
 Sviluppato da **enBeg**, che ha guidato il progetto, messo a disposizione l'hardware e
