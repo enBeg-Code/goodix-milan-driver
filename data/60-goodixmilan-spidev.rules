@@ -1,0 +1,3 @@
+# Goodix Milan F (GXFP3200) SPI fingerprint sensor: bind spidev so libfprint can find it.
+# Same form as the rules libfprint generates for its SPI drivers (70-libfprint-2.rules).
+ACTION=="add|change", SUBSYSTEM=="spi", ENV{MODALIAS}=="acpi:GXFP3200:", RUN{builtin}+="kmod load spi:spidev", RUN+="/bin/sh -c 'echo spidev > %S%p/driver_override && echo %k > %S%p/subsystem/drivers/spidev/bind'"

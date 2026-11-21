@@ -1,0 +1,15 @@
+# build output
+*.so
+*.o
+
+# fingerprint images and templates are biometric data: never commit them
+dataset/
+*.npy
+*.npz
+*.png
+*.pgm
+*.bin
+*.raw
+
+__pycache__/
+.venv/
